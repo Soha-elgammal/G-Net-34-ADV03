@@ -240,6 +240,35 @@
                 Console.WriteLine("\nQueue is empty");
             }
 
+
+            //Exercise 6
+            // Create stack
+            Stack<string> history = new Stack<string>();
+
+            history.Push("google.com");
+            history.Push("github.com");
+            history.Push("stackoverflow.com");
+            history.Push("youtube.com");
+            history.Push("claude.ai");
+
+            // Q2: Peek current page
+            Console.WriteLine("Current Page: " + history.Peek());
+
+            // Q3: Go back 3 times
+            Console.WriteLine("\nGoing back:");
+            for (int i = 0; i < 3; i++)
+            {
+                Console.WriteLine("Leaving: " + history.Pop());
+            }
+
+            // Q4: Current page after back
+            Console.WriteLine("\nCurrent Page now: " + history.Peek());
+
+            // Q5: TryPop on empty stack
+            history.Clear(); // make it empty
+            bool success = history.TryPop(out string page);
+            Console.WriteLine("\nTryPop on empty stack success? " + success);
+
         }
     }
 }
