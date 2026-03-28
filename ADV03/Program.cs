@@ -160,6 +160,46 @@
             Console.WriteLine(string.Join(", ", phoneBook.Values));
 
 
-        }
+            //Exercise 4
+            // Q1: Create HashSet with case-insensitive comparer
+            HashSet<string> emails = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+
+            // Q2: Add emails
+            emails.Add("ahmed@test.com");
+            emails.Add("AHMED@test.com");
+            emails.Add("sara@test.com");
+            emails.Add("Sara@Test.Com");
+
+            // Q3: Print count
+            Console.WriteLine("Emails Count: " + emails.Count);
+
+            // Explanation
+            Console.WriteLine("Duplicates ignored because HashSet is case-insensitive");
+
+            // Q4: Create sets
+            HashSet<int> A = new HashSet<int> { 1, 2, 3, 4, 5 };
+            HashSet<int> B = new HashSet<int> { 4, 5, 6, 7, 8 };
+
+            // Union
+            var union = new HashSet<int>(A);
+            union.UnionWith(B);
+            Console.WriteLine("\nUnion: " + string.Join(", ", union));
+
+            // Intersection
+            var intersect = new HashSet<int>(A);
+            intersect.IntersectWith(B);
+            Console.WriteLine("Intersection: " + string.Join(", ", intersect));
+
+            // Except
+            var except = new HashSet<int>(A);
+            except.ExceptWith(B);
+            Console.WriteLine("Except (A - B): " + string.Join(", ", except));
+
+            // Q6: Subset
+            HashSet<int> subset = new HashSet<int> { 1, 2 };
+            Console.WriteLine("Is {1,2} subset of A? " + subset.IsSubsetOf(A));
+        
+
     }
+}
 }
