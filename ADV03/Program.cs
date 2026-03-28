@@ -109,6 +109,57 @@
             }
 
             Console.ReadLine();
+
+            //Exercise 3
+            // Q1: Create phone book with 4 contacts
+            Dictionary<string, string> phoneBook = new Dictionary<string, string>()
+            {
+                {"Ahmed", "01012345678"},
+                {"Sara", "01123456789"},
+                {"Ali", "01234567890"},
+                {"Mona", "01598765432"}
+            };
+
+            // Q2: Add new contact using [] (add or update)
+            phoneBook["Omar"] = "01000000000";
+
+            // Q3: Try adding duplicate using .Add()
+            try
+            {
+                phoneBook.Add("Ahmed", "999999999");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error (Add duplicate): " + ex.Message);
+            }
+
+            // Q4: Try adding duplicate using .TryAdd()
+            bool added = phoneBook.TryAdd("Sara", "888888888");
+            Console.WriteLine("TryAdd Sara success? " + added);
+
+            // Q5: Search for a contact that doesn’t exist
+            if (phoneBook.ContainsKey("Yara"))
+            {
+                Console.WriteLine("Yara found");
+            }
+            else
+            {
+                Console.WriteLine("Yara not found");
+            }
+
+            // Q6: Get contact with fallback
+            string result = phoneBook.ContainsKey("Yara") ? phoneBook["Yara"] : "Not Found";
+            Console.WriteLine("Yara Phone: " + result);
+
+            // Q7: Print all keys in one line
+            Console.WriteLine("\nAll Names:");
+            Console.WriteLine(string.Join(", ", phoneBook.Keys));
+
+            // Print all values in one line
+            Console.WriteLine("\nAll Numbers:");
+            Console.WriteLine(string.Join(", ", phoneBook.Values));
+
+
         }
     }
 }
