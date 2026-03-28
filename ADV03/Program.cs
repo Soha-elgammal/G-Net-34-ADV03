@@ -198,8 +198,48 @@
             // Q6: Subset
             HashSet<int> subset = new HashSet<int> { 1, 2 };
             Console.WriteLine("Is {1,2} subset of A? " + subset.IsSubsetOf(A));
-        
 
+
+            //Exercise 5
+            // Create queue
+            Queue<string> queue = new Queue<string>();
+
+            queue.Enqueue("Report.pdf");
+            queue.Enqueue("Invoice.pdf");
+            queue.Enqueue("Letter.docx");
+            queue.Enqueue("Resume.pdf");
+            queue.Enqueue("Photo.jpg");
+
+            // Q1: Print queue and count
+            Console.WriteLine("Queue:");
+            foreach (var doc in queue)
+            {
+                Console.WriteLine(doc);
+            }
+            Console.WriteLine("Count: " + queue.Count);
+
+            // Q2: Peek
+            if (queue.Count > 0)
+                Console.WriteLine("\nNext to print: " + queue.Peek());
+
+            // Q3: Process queue
+            Console.WriteLine("\nProcessing:");
+            while (queue.Count > 0)
+            {
+                Console.WriteLine("Printing: " + queue.Dequeue());
+            }
+
+            // Q4: Safe Dequeue on empty queue
+            if (queue.Count > 0)
+            {
+                string results = queue.Dequeue();
+                Console.WriteLine(results);
+            }
+            else
+            {
+                Console.WriteLine("\nQueue is empty");
+            }
+
+        }
     }
-}
 }
